@@ -1,64 +1,39 @@
 <title>Enter title here</title>
 <head>
-  <script src="p5/p5.min.js"></script>
+  <script src="p5/p5.js"></script>
   <script src="p5/addons/p5.sound.min.js"></script>
   <script src="p5/addons/p5.play.js"></script>
   <script>
-  /*
-  
-  //MIC SETUP
+  var spin;
+  var direction = 90; //spin initial direction moving down
   var mic;
-  function setup(){
-    mic = new p5.AudioIn()
-    mic.start();
-    createCanvas(300, 300);
-  }
-  
-  
-  function draw(){
-    background(0);
-    micLevel = mic.getLevel();
-    ellipse(width/2, constrain(height-micLevel*height*5, 0, height), 100, 100);
-  }
-  */
-    
-  //Moving sprites
-  var ghost, circle;
-  var direction = 90; //circle initial direction moving down
 
   function setup() {
-    createCanvas(800,400);
-  
-    //create the sprites
-    ghost = createSprite(600, 200, 50, 100);
-    ghost.addAnimation("floating", "mill.png", "mill.png");
-  
-    circle = createSprite(400, 200, 50, 100);
-    circle.addAnimation("floating", "mill.png", "mill.png");
-  
+    mic = new p5.AudioIn()
+    mic.start();
+    createCanvas(800,800);
+
+    spin1 = createSprite(400, 200, 1, 1);
+    spin1.addAnimation("floating", "img/mill.png");
+
   }
 
   function draw() {
+    micLevel = mic.getLevel();
     background(255,255,255);  
-  
+
     //aside of setting the velocity directly you can move a sprite
     //by providing a speed and an angle
-    direction += 2;
+    direction += 2 + 100*micLevel;
     //speed, angle
-    circle.setSpeed(3, direction);
-  
-    //you can rotate the sprite according the directio it is moving
-    //uncomment this
-    circle.rotateToDirection = true;
-  
-    //or by applying a force toward a point
-    //force (acceleration), pointx, pointy
-    ghost.attractionPoint(.2, mouseX, mouseY);
-    //since the force keeps incrementing the speed you can 
-    //set a limit to it with maxSpeed
-    ghost.maxSpeed = 5;
-  
+    spin1.setSpeed(micLevel*100, direction);
+    //console.log(micLevel*100);
+
+    //Make it rotate towards direction
+    spin1.rotateToDirection = true;
+
     //draw the sprite
+    spin1.scale = .15;
     drawSprites();
   }
 
