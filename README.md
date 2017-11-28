@@ -1,7 +1,7 @@
 # p5-SoundGame
 just messing with p5
 
-#DO NOT USE WITH CHROME
+# DO NOT USE WITH CHROME
 VIA "file:///path/to/file" because chrome doesn't like insecure stuff... use firefox instead :)
 
 --- 
