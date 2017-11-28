@@ -9,30 +9,29 @@
   var mic;
 
   function setup() {
-    mic = new p5.AudioIn()
-    mic.start();
-    createCanvas(800,800);
+    mic = new p5.AudioIn() //Set things up :)
+    mic.start(); //startup the mic! :D
+    createCanvas(800,800); //make our painting
 
-    spin1 = createSprite(400, 200, 1, 1);
-    spin1.addAnimation("floating", "img/mill.png");
+    spin1 = createSprite(400, 200, 1, 1); //sprite located @400,200 (x,y)
+    spin1.addAnimation("floating", "img/mill.png"); //here's the picture and type
 
   }
 
   function draw() {
-    micLevel = mic.getLevel();
+    micLevel = mic.getLevel(); //get the "loudness" level
     background(255,255,255);  
 
-    //aside of setting the velocity directly you can move a sprite
-    //by providing a speed and an angle
-    direction += 2 + 100*micLevel;
+    //move a sprite by speed and an angle with mic value
+    direction += 2 + 100*micLevel; //we need the "2", otherwise it will fly out of the world
     //speed, angle
-    spin1.setSpeed(micLevel*100, direction);
-    //console.log(micLevel*100);
+    spin1.setSpeed(micLevel*100, direction); //the mic is * by 100 because why not
+    //console.log(micLevel*100);   //uncomment to find out why! ;)
 
-    //Make it rotate towards direction
+    //must make rotate
     spin1.rotateToDirection = true;
 
-    //draw the sprite
+    //draw the spinny thing!
     spin1.scale = .15;
     drawSprites();
   }
