@@ -10,8 +10,8 @@
   var life = 3;
 
   function setup() {
-    mic = new p5.AudioIn() //self explanitory
-    mic.start(); //Start the microphone
+    mic = new p5.AudioIn() //set things up
+    mic.start(); //Start up the mic
     createCanvas(window.innerWidth,800); // How large your drawing is in (x,y)
 
     spin1 = createSprite(200, 200, 1, 1); //(x,y,??,??) origin @ top left corner
@@ -44,6 +44,7 @@
     }
     //draw the sprite
     spin1.scale = .15; //how big do you want the cat?
+
     drawSprites();
   }
 
