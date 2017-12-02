@@ -36,7 +36,7 @@
     //spin1.position.x = 30;
     //spin1.position.y = 50;
 
-    if(micLevel*100>5){
+    if(micLevel*100>5){ //only move if it's loud enough
       spin1.position.x += micLevel*10;
     }
     else if ((micLevel*100<10)&&(spin1.position.x > 30)){
