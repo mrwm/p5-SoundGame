@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<title>Enter title here</title>
+<head>
+  <script src="p5/p5.js"></script>
+  <script src="p5/addons/p5.sound.min.js"></script>
+  <script src="p5/addons/p5.play.js"></script>
+  <script src="p5/addons/p5.dom.min.js"></script>
+  <script>
+  
+var eks = window.innerWidth - 200; //say the variable out loud
+
+function setup() {
+  createCanvas(window.innerWidth,800); // How large your drawing is in (x,y)
+
+  //Grass
+  grass = createSprite(100, 300, 1, 1);
+  grass.addAnimation("floating", "img/grass_1.png");
+  grassy = createSprite(150, 325, 1, 1);
+  grassy.addAnimation("floating", "img/grass_2.png");
+}
+
+function draw() {
+  //var randnum = random(5); //a random number
+  background(135, 206, 235);  //Backgrouond color
+
+  //for the ground
+  fill(48, 101, 0, 127); //Grey: 150, 150, 150 
+  stroke(72, 152, 0); //Grey: 211, 211, 211
+  rotate(PI/15.0); //Rotate things
+  rect(0, 250, window.innerWidth+1000, 500); //rectangle for ground
+
+  //For the backgrouond
+  
+  //move the things
+  grass.setSpeed(1, 0.1); //speed, angle
+  grassy.setSpeed(1, 0.1);
+  if (grass.position.x > 0){
+    grass.position.x -= 10; //move the grass
+  }
+  else if (grass.position.x < 0){
+    grass.position.x = eks + 300; //reset the grass
+  }
+  if (grassy.position.x > 0){
+    grassy.position.x -= 10; //move the grass
+  }
+  else if (grassy.position.x < 0){
+    grassy.position.x = eks + 300; //reset the grass
+  }
+
+  grass.scale = 0.1;
+  grassy.scale = 0.1;
+  drawSprites();
+}
+  </script>
+</head>
+<body>
+</body>
