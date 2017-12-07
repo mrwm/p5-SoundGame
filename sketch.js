@@ -10,8 +10,12 @@ var eks = window.innerWidth - 200; //say the variable out loud
 //Help Button
 var imgBtn;
 
+//for the background
+var grass, grassy, tree, cloud, cloudy;
+
 function preload(){
-  walk_animation = loadAnimation("img/walk/walk.0001.png", "img/walk/walk.0002.png", "img/walk/walk.0003.png", "img/walk/walk.0004.png");
+  walk_animation = loadAnimation("img/walk/walk.0005.png", "img/walk/walk.0006.png", "img/walk/walk.0005.png", "img/walk/walk.0006.png");
+  walk_animation.scale = 0.5;
 }
 
 function setup() {
@@ -26,11 +30,17 @@ function setup() {
   spin1 = createSprite(250, 150, 1, 1); //(x,y,??,??) origin @ top left corner
   spin1.addAnimation("floating", "img/cat_3.png"); //change to cat_2.png for other cat
 
-  //Grass
+  //for the background
   grass = createSprite(100, 300, 1, 1);
   grass.addAnimation("floating", "img/grass_1.png");
   grassy = createSprite(150, 325, 1, 1);
   grassy.addAnimation("floating", "img/grass_2.png");
+  tree = createSprite(700, 100, 1, 1);
+  tree.addAnimation("floating", "img/tree.png");
+  cloud = createSprite(150, 10, 1, 1);
+  cloud.addAnimation("floating", "img/cloud_1.png");
+  cloudy = createSprite(500, 15, 1, 1);
+  cloudy.addAnimation("floating", "img/cloud_2.png");
 }
 
 function draw() {
@@ -69,6 +79,11 @@ function draw() {
   //move the things
   grass.setSpeed(1, 0.1); //speed, angle
   grassy.setSpeed(1, 0.1);
+  tree.setSpeed(1, 0.1);
+  cloud.setSpeed(1, 0.1);
+  cloudy.setSpeed(1, 0.1);
+
+  //background logic
   if (grass.position.x > 0){
     grass.position.x -= 10; //move the grass
   }
@@ -81,19 +96,41 @@ function draw() {
   else if (grassy.position.x < 0){
     grassy.position.x = eks + 300; //reset the grass
   }
+  if (tree.position.x > 0){
+    tree.position.x -= 10; //move the tree
+  }
+  else if (tree.position.x < 0){
+    tree.position.x = eks + 300; //reset the tree
+  }
+  if (cloud.position.x > 0){
+    cloud.position.x -= 3; //move the cloud
+  }
+  else if (cloud.position.x < 0){
+    cloud.position.x = eks + 300; //reset the cloud
+  }
+  if (cloudy.position.x > 0){
+    cloudy.position.x -= 4; //move the cloud
+  }
+  else if (cloudy.position.x < 0){
+    cloudy.position.x = eks + 300; //reset the cloud
+  }
 
   //shrink the cat
   spin1.scale = .15; //how big do you want the cat?
+
   //shrink the background stuff
   grass.scale = 0.1;
   grassy.scale = 0.1;
+  tree.scale = 0.5;
+  cloud.scale = 0.3;
+  cloudy.scale = 0.2;
 
-  
-  //the guy
-  animation(walk_animation, eks, 200);
   //The help button
   image(imgBtn, 100, 425, 120, 120);
   drawSprites();
+  
+  //the guy
+  animation(walk_animation, eks, 150);
 }
 
 function mousePressed() {
