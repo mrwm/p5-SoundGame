@@ -28,7 +28,7 @@ function setup() {
 
   //position of the cat
   spin1 = createSprite(250, 150, 1, 1); //(x,y,??,??) origin @ top left corner
-  spin1.addAnimation("floating", "img/cat_3.png"); //change to cat_2.png for other cat
+  spin1.addAnimation("floating", "img/cat_4.png"); //change to cat_2.png for other cat
 
   //for the background
   grass = createSprite(100, 300, 1, 1);
@@ -70,6 +70,7 @@ function draw() {
   
   if (spin1.position.x > eks - 50){
     alert("You cought up! (b^__^)b");
+    alert("You can remove this popup or change the text in line 73ish");
     spin1.position.x = 100; //reset the cat position
   }
 
@@ -128,7 +129,7 @@ function draw() {
   //The help button
   image(imgBtn, 100, 425, 120, 120);
   drawSprites();
-  
+
   //the guy
   animation(walk_animation, eks, 150);
 }
@@ -137,7 +138,7 @@ function mousePressed() {
   // Check if mouse is inside the circle
   var d = dist(mouseX, mouseY, 30, 500);
   if (d < 75) {
-    var text = "enter the instructions here";
+    var text = "enter the instructions here (line 140ish) in sketch.js";
     alert(text);
   }
 }

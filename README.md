@@ -12,3 +12,5 @@ via "file:///path/to/file" because chrome doesn't like insecure stuff...
 1. Download as zip
 2. Edit index.html + sketch.js(add title and other stuff)
 3. profit
+
+oh yeah, you can also test the current code [here](wiiliam.github.io/p5-SoundGame)
