@@ -52,7 +52,7 @@ function draw() {
   fill(48, 101, 0, 127); //Grey: 150, 150, 150 
   stroke(72, 152, 0); //Grey: 211, 211, 211
   rotate(PI/15.0); //Rotate things
-  rect(0, 250, window.innerWidth+1000, 500); //rectangle for ground
+  rect(0, 250, window.innerWidth+1000, 1000); //rectangle for ground
 
   //move a sprite by providing a speed and an angle
   direction += 0 + 100*micLevel;
@@ -138,7 +138,7 @@ function mousePressed() {
   // Check if mouse is inside the circle
   var d = dist(mouseX, mouseY, 30, 500);
   if (d < 75) {
-    var text = "enter the instructions here (line 140ish) in sketch.js";
+    var text = "enter the instructions here\n(line 140ish) in sketch.js";
     alert(text);
   }
 }
