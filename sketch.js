@@ -26,10 +26,6 @@ function setup() {
   mic.start(); //Start up the mic
   createCanvas(window.innerWidth,800); // How large your drawing is in (x,y)
 
-  //position of the cat
-  spin1 = createSprite(250, 150, 1, 1); //(x,y,??,??) origin @ top left corner
-  spin1.addAnimation("floating", "img/cat_4.png"); //change to cat_2.png for other cat
-
   //for the background
   grass = createSprite(100, 300, 1, 1);
   grass.addAnimation("floating", "img/grass_1.png");
@@ -41,6 +37,10 @@ function setup() {
   cloud.addAnimation("floating", "img/cloud_1.png");
   cloudy = createSprite(500, 15, 1, 1);
   cloudy.addAnimation("floating", "img/cloud_2.png");
+
+  //position of the cat
+  spin1 = createSprite(250, 150, 1, 1); //(x,y,??,??) origin @ top left corner
+  spin1.addAnimation("floating", "img/cat_4.png"); //change to cat_2.png for other cat
 }
 
 function draw() {
