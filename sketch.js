@@ -70,7 +70,7 @@ function draw() {
   
   if (spin1.position.x > eks - 50){
     alert("You cought up! (b^__^)b");
-    alert("You can remove this popup or change the text in line 73ish");
+    alert("You can remove this popup\n or change the text in line 73ish");
     spin1.position.x = 100; //reset the cat position
   }
 
