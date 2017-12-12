@@ -18,21 +18,21 @@
 <div id="timer"></div>
 <script>
   var el = document.getElementById("timer"),
-    mins = 2,
+    mins = 0,
     secs = 0;
 
-  function countDown() {
-    if (secs || mins) {
+  function countUp() {
+    //if (secs || mins) {
       setTimeout(countDown, 1000); // Should be 1000, but I'm impatient
-    }
+    //}
     el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); // Pad number
-    secs -= 1;
-     if (secs < 0) {
-      mins -= 1;
-      secs = 59;
+    secs += 1;
+     if (secs > 59) {
+      mins += 1;
+      secs = 0;
     }
   }
 
-  countDown();
+  countUp();
 </script>
 </body>
