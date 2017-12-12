@@ -71,8 +71,9 @@ function draw() {
   }
   
   if (spin1.position.x > eks - 50){
-    alert("You cought up! (b^__^)b");
-    alert("You can remove this popup\n or change the text in line 73ish");
+    var el = document.getElementById("timer").innerHTML;
+    alert("You cought up! (b^__^)b at "+el);
+    //alert(el);
     spin1.position.x = 100; //reset the cat position
   }
 
