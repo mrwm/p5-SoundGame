@@ -10,7 +10,7 @@
 var eks = window.innerWidth - 200; //say the variable out loud
 
 function setup() {
-  createCanvas(window.innerWidth,800); // How large your drawing is in (x,y)
+  createCanvas(window.innerWidth -50,window.innerHeight -50); // How large your drawing is in (x,y)
 
   //Grass
   grass = createSprite(100, 300, 1, 1);
@@ -52,6 +52,35 @@ function draw() {
   drawSprites();
 }
   </script>
+
+  <style>
+  #timer{
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+  }
+  </style>
 </head>
 <body>
+<div id="timer"></div>
+
+  <script>
+  var el = document.getElementById("timer"),
+    mins = 0,
+    secs = 0;
+
+  function countUp() {
+    //if (secs || mins) {
+      setTimeout(countUp, 1000); // Should be 1000, but I'm impatient
+    //}
+    el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); // Pad number
+    secs += 1;
+     if (secs > 59) {
+      mins += 1;
+      secs = 0;
+    }
+  }
+
+  countUp();
+  </script>
 </body>

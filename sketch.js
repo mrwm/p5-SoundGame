@@ -24,19 +24,21 @@ function setup() {
   clear();
   mic = new p5.AudioIn() //set things up
   mic.start(); //Start up the mic
-  createCanvas(window.innerWidth,800); // How large your drawing is in (x,y)
+  createCanvas(window.innerWidth,window.innerHeight); // How large your drawing is in (x,y)
 
   //for the background
   grass = createSprite(100, 300, 1, 1);
   grass.addAnimation("floating", "img/grass_1.png");
   grassy = createSprite(150, 325, 1, 1);
   grassy.addAnimation("floating", "img/grass_2.png");
-  tree = createSprite(700, 100, 1, 1);
-  tree.addAnimation("floating", "img/tree.png");
   cloud = createSprite(150, 10, 1, 1);
   cloud.addAnimation("floating", "img/cloud_1.png");
   cloudy = createSprite(500, 15, 1, 1);
   cloudy.addAnimation("floating", "img/cloud_2.png");
+  tree = createSprite(700, 100, 1, 1);
+  tree.addAnimation("floating", "img/tree.png");
+  tree1 = createSprite(1000, 100, 1, 1);
+  tree1.addAnimation("floating", "img/tree.png");
 
   //position of the cat
   spin1 = createSprite(250, 150, 1, 1); //(x,y,??,??) origin @ top left corner
@@ -81,6 +83,7 @@ function draw() {
   grass.setSpeed(1, 0.1); //speed, angle
   grassy.setSpeed(1, 0.1);
   tree.setSpeed(1, 0.1);
+  tree1.setSpeed(1, 0.1);
   cloud.setSpeed(1, 0.1);
   cloudy.setSpeed(1, 0.1);
 
@@ -97,11 +100,17 @@ function draw() {
   else if (grassy.position.x < 0){
     grassy.position.x = eks + 300; //reset the grass
   }
-  if (tree.position.x > 0){
+  if (tree.position.x > -300){
     tree.position.x -= 10; //move the tree
   }
-  else if (tree.position.x < 0){
+  else if (tree.position.x < -300){
     tree.position.x = eks + 300; //reset the tree
+  }
+  if (tree1.position.x > -100){
+    tree1.position.x -= 10; //move the tree
+  }
+  else if (tree1.position.x < -100){
+    tree1.position.x = eks + 300; //reset the tree
   }
   if (cloud.position.x > 0){
     cloud.position.x -= 3; //move the cloud
@@ -123,6 +132,7 @@ function draw() {
   grass.scale = 0.1;
   grassy.scale = 0.1;
   tree.scale = 0.5;
+  tree1.scale = 0.5;
   cloud.scale = 0.3;
   cloudy.scale = 0.2;
 

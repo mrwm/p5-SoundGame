@@ -7,16 +7,32 @@
   <script src="p5/addons/p5.dom.min.js"></script>
   <script src="sketch.js"></script>
   <style>
-  #text{
+  #timer{
   position: absolute;
   bottom: 0;
-  left: 20;
+  left: 100px;
   }
   </style>
 </head>
 <body>
-<p id="text">
-LOOOK HERE! THERE'S (kinda lame) TEXT! :O (in index.html). Adjust the "left: 20" & "top: 0" in the style tag<br>
-to move the text
-</p>
+<div id="timer"></div>
+<script>
+  var el = document.getElementById("timer"),
+    mins = 2,
+    secs = 0;
+
+  function countDown() {
+    if (secs || mins) {
+      setTimeout(countDown, 1000); // Should be 1000, but I'm impatient
+    }
+    el.innerHTML = mins + ":" + (secs.toString().length < 2 ? "0" + secs : secs); // Pad number
+    secs -= 1;
+     if (secs < 0) {
+      mins -= 1;
+      secs = 59;
+    }
+  }
+
+  countDown();
+</script>
 </body>
